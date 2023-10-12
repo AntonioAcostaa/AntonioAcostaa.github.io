@@ -9,11 +9,31 @@ const resetButton = document.querySelector('#reset-button');
 const feedbackContainer = document.querySelector('#feedback-container');
 
 let marketplaceItems = [];
+
+if (!localStorage.getItem('purchasedItems')) {
+    localStorage.setItem('purchasedItems', JSON.stringify([]));
+}
 let purchasedItems = JSON.parse(localStorage.getItem("purchasedItems")) || [];
+
+if (!localStorage.getItem('resources')) {
+    localStorage.setItem('resources', JSON.stringify({gold: 0, metal: 0, wood: 0}));
+}
+const resources = JSON.parse(localStorage.getItem('resources'));
+
 
 const purchaseItem = (itemName) => {
     const itemToPurchase = marketplaceItems.find((item) => item.name === itemName);
-    const resources = JSON.parse(localStorage.getItem('resources'));
+
+
+    // if (resources.gold === null && resources.metal === null && resources.wood === null) {
+    //     feedbackContainer.innerHTML = `<p style="color: red;">You do not have enough resources to purchase this item</p>`
+    //     window.scrollTo(0, 0); // scroll to top of page
+    //     setTimeout(() => {
+    //         feedbackContainer.innerHTML = '';
+    //     }, 5000);
+    //     return;
+    // }
+
 
     if (itemToPurchase.category === 'Machines') {
         if (itemToPurchase.priceMetal <= resources.metal && itemToPurchase.priceWood <= resources.wood && itemToPurchase.priceGold <= resources.gold) {
@@ -31,6 +51,7 @@ const purchaseItem = (itemName) => {
             return;
         } else {
             feedbackContainer.innerHTML = `<p style="color: red;">You do not have enough resources to purchase this item</p>`
+            window.scrollTo(0, 0); // scroll to top of page
             setTimeout(() => {
                 feedbackContainer.innerHTML = '';
             }, 5000);
@@ -49,11 +70,13 @@ const purchaseItem = (itemName) => {
             return;
         } else {
             feedbackContainer.innerHTML = `<p style="color: red;">You do not have enough resources to purchase this item</p>`
+            window.scrollTo(0, 0); // scroll to top of page
             setTimeout(() => {
                 feedbackContainer.innerHTML = '';
             }, 5000);
         }
     }
+
 
 };
 
