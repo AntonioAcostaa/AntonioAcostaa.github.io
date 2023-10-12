@@ -4,9 +4,9 @@ const mineImage = document.querySelector("#mines-of-thiartha");
 const woodsImage = document.querySelector("#woods-of-ghalduz");
 
 const mineMetal = () => {
-    // Generate a random number between 1 and 50.
+    // Generate a random number between 1 and 75.
     const random = Math.random();
-    const randomResource = Math.floor(Math.random() * 50) + 1;
+    const randomResource = Math.floor(Math.random() * 75) + 1;
 
     // If the random number is less than 0.25, add gold to the resources
     if (random < 0.25) {
@@ -31,8 +31,8 @@ const mineMetal = () => {
 };
 
 const chopWood = () => {
-    // Generate a random number between 1 and 10
-    const random = Math.floor(Math.random() * 10) + 1;
+    // Generate a random number between 1 and 25
+    const random = Math.floor(Math.random() * 25) + 1;
 
     // Add the random amount of wood to the resources
     const resources = ResourceModule.getResources();
