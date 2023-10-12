@@ -1,6 +1,6 @@
-import WarriorModule from './modules/gatherWarriors/WarriorModule.js';
-import WarMachinesModule from './modules/gatherWarriors/WarMachinesModule.js';
-import AnimalsModule from './modules/gatherWarriors/AnimalsModule.js';
+import WarriorModule from './modules/armyHandlers/WarriorModule.js';
+import WarMachinesModule from './modules/armyHandlers/WarMachinesModule.js';
+import AnimalsModule from './modules/armyHandlers/AnimalsModule.js';
 
 const statisticsContainer = document.querySelector('#statistics-container');
 
