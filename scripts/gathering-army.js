@@ -1,5 +1,5 @@
 import WarriorModule from './modules/gatherWarriors/WarriorModule.js';
-import WarMachinesModule from './modules/gatherWarriors/WarmachinesModule.js';
+import WarMachinesModule from './modules/gatherWarriors/WarMachinesModule.js';
 import AnimalsModule from './modules/gatherWarriors/AnimalsModule.js';
 import renderResource from './resource.js';
 const marketplaceOutput = document.querySelector('#marketplace-container');
