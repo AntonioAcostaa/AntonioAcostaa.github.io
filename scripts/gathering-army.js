@@ -24,17 +24,6 @@ const resources = JSON.parse(localStorage.getItem('resources'));
 const purchaseItem = (itemName) => {
     const itemToPurchase = marketplaceItems.find((item) => item.name === itemName);
 
-
-    // if (resources.gold === null && resources.metal === null && resources.wood === null) {
-    //     feedbackContainer.innerHTML = `<p style="color: red;">You do not have enough resources to purchase this item</p>`
-    //     window.scrollTo(0, 0); // scroll to top of page
-    //     setTimeout(() => {
-    //         feedbackContainer.innerHTML = '';
-    //     }, 5000);
-    //     return;
-    // }
-
-
     if (itemToPurchase.category === 'Machines') {
         if (itemToPurchase.priceMetal <= resources.metal && itemToPurchase.priceWood <= resources.wood && itemToPurchase.priceGold <= resources.gold) {
             resources.metal -= itemToPurchase.priceMetal;
@@ -44,6 +33,7 @@ const purchaseItem = (itemName) => {
             localStorage.setItem('resources', JSON.stringify(resources));
             localStorage.setItem('purchasedItems', JSON.stringify(purchasedItems));
             feedbackContainer.innerHTML = `<p style="color: green;">You have purchased ${itemToPurchase.name}</p>`
+            window.scrollTo(0, 0); // scroll to top of page
             setTimeout(() => {
                 feedbackContainer.innerHTML = '';
             }, 5000);
@@ -63,6 +53,7 @@ const purchaseItem = (itemName) => {
             localStorage.setItem('resources', JSON.stringify(resources));
             localStorage.setItem('purchasedItems', JSON.stringify(purchasedItems));
             feedbackContainer.innerHTML = `<p style="color: green;">You have purchased ${itemToPurchase.name}</p>`
+            window.scrollTo(0, 0); // scroll to top of page
             setTimeout(() => {
                 feedbackContainer.innerHTML = '';
             }, 5000);
